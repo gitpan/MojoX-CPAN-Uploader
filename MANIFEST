@@ -1,0 +1,14 @@
+bin/mojo-cpanup
+Build.PL
+Changes
+lib/MojoX/CPAN/Uploader.pm
+Makefile.PL
+MANIFEST
+README
+t/00.load.t
+t/01.mojo-cpan-uploader.t
+t/02.mojo-cpanup.t
+t/perlcritic.t
+t/pod-coverage.t
+t/pod.t
+META.yml                                 Module meta-data (added by MakeMaker)
