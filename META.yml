@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               MojoX-CPAN-Uploader
-version:            0.01_4
+version:            0.01_5
 abstract:           Mojo way to upload on CPAN
 author:
     - Yaroslav Korshak <ykorshak@gmail.com>
@@ -11,13 +11,14 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    File::Spec:     0
-    Getopt::Long:   0
-    IPC::Open3:     0
-    Mojolicious:    0.999927
-    Term::ReadKey:  0
-    Test::More:     0
-    version:        0
+    File::Spec:       0
+    Getopt::Long:     0
+    IO::Socket::SSL:  0
+    IPC::Open3:       0
+    Mojolicious:      0.999938
+    Term::ReadKey:    0
+    Test::More:       0
+    version:          0
 no_index:
     directory:
         - t
