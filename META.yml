@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               MojoX-CPAN-Uploader
-version:            0.01_5
+version:            0.01_6
 abstract:           Mojo way to upload on CPAN
 author:
     - Yaroslav Korshak <ykorshak@gmail.com>
@@ -15,7 +15,7 @@ requires:
     Getopt::Long:     0
     IO::Socket::SSL:  0
     IPC::Open3:       0
-    Mojolicious:      0.999938
+    Mojolicious:      0.999939
     Term::ReadKey:    0
     Test::More:       0
     version:          0
