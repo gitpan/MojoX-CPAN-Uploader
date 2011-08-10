@@ -1,37 +1,34 @@
-# Copyright (C) 2010, Yaroslav Korshak.
- 
 package MojoX::CPAN::Uploader;
 
 use warnings;
 use strict;
+
 use Carp;
 use File::Basename;
 
-use base 'Mojo::Base';
+use Mojo::Base '-base';
 
-require Mojo::Client;
+require Mojo::UserAgent;
 require IO::Socket::SSL;
 
-__PACKAGE__->attr(client => sub { Mojo::Client->new });
-__PACKAGE__->attr([qw/user pass/]);
-__PACKAGE__->attr(url => sub { Mojo::URL->new('https://pause.perl.org/pause/authenquery') });
-__PACKAGE__->attr(
-    defaults => sub {
-        {   CAN_MULTIPART => 1,
-            SUBMIT_pause99_add_uri_httpupload =>
-              " Upload this file from my disk ",
-            pause99_add_uri_uri => "",
-        };
-    }
-);
+has client => sub { Mojo::UserAgent->new };
+has [qw/user pass/];
+has url => sub { Mojo::URL->new('https://pause.perl.org/pause/authenquery') };
+has defaults => sub {
+    {   CAN_MULTIPART => 1,
+        SUBMIT_pause99_add_uri_httpupload =>
+          " Upload this file from my disk ",
+        pause99_add_uri_uri => "",
+    };
+};
 
-our $VERSION = '0.01_6';
+our $VERSION = '0.03';
 
 sub auth {
     my $self = shift;
 
     croak("Basic authorization user name can't contain ':'")
-        if $_[0] =~ /:/;
+      if $_[0] =~ /:/;
 
     $self->user(shift);
     $self->pass(shift);
@@ -106,7 +103,7 @@ MojoX::CPAN::Uploader - Mojo way to upload on CPAN
 
 =head1 DESCRIPTION
 
-This module uses power of L<Mojo::Client> to upload your files on CPAN.
+This module uses power of L<Mojo::UserAgent> to upload your files on CPAN.
 
 
 =head1 METHODS
@@ -122,7 +119,7 @@ Set user creditionals for PAUSE server. Takes 2 parameters: username and passwor
 
 =item C<upload>
 
-Uploads file to CPAN server. Takes 2 parameters: 
+Uploads file to CPAN server. Takes 2 parameters:
 filename and subdir on CPAN server (optional).
 
 
@@ -135,12 +132,12 @@ L<Mojolicious>
 
 =head1 AUTHOR
 
-Yaroslav Korshak  C<< <ykorshak@gmail.com> >>
+Yaroslav Korshak  C<< <yko@cpan.org> >>
 
 
 =head1 LICENCE AND COPYRIGHT
 
-Copyright (c) 2010, Yaroslav Korshak C<< <ykorshak@gmail.com> >>. All rights reserved.
+Copyright (c) 2010-2011, Yaroslav Korshak C<< <yko@cpan.org> >>. All rights reserved.
 
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself. See L<perlartistic>.
