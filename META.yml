@@ -26,8 +26,9 @@ requires:
   IPC::Open3: 0
   Mojolicious: 1.51
   Term::ReadKey: 0
+  perl: 5.10.0
 resources:
   bugtracker: http://github.com/yko/mojox-cpan-uploader/issues
   license: http://dev.perl.org/licenses/
   repository: http://github.com/yko/mojox-cpan-uploader
-version: 0.03
+version: 0.0301
