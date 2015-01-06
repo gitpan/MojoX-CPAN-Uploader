@@ -22,7 +22,7 @@ has defaults => sub {
     };
 };
 
-our $VERSION = '0.032';
+our $VERSION = '0.033';
 
 sub auth {
     my $self = shift;
@@ -40,9 +40,9 @@ sub upload {
 
     croak "Auth info required!" unless $self->user;
 
-    my $tx = $self->client->post_form(
-        $url,
-        {   %{$self->defaults},
+    my $tx = $self->client->post(
+        $url, form => {
+            %{$self->defaults},
             HIDDENNAME                 => $self->user,
             pause99_add_uri_upload     => basename($file),
             pause99_add_uri_httpupload => {file => $file},
@@ -87,7 +87,7 @@ __END__
 
 =head1 NAME
 
-MojoX::CPAN::Uploader - Mojo way to upload on CPAN
+MojoX::CPAN::Uploader - DEPRECATED Mojo way to upload on CPAN
 
 
 =head1 SYNOPSIS
@@ -104,6 +104,9 @@ MojoX::CPAN::Uploader - Mojo way to upload on CPAN
 =head1 DESCRIPTION
 
 This module uses power of L<Mojo::UserAgent> to upload your files on CPAN.
+
+PLEASE NOTE THAT THIS MODULE IS DEPRECATED AND NO LONGER MAINTAINED.
+Please use C<CPAN::Uploader> or C<Mojolicious::Command::cpanify> instead.
 
 
 =head1 METHODS
@@ -128,6 +131,12 @@ filename and subdir on CPAN server (optional).
 =head1 DEPENDENCIES
 
 L<Mojolicious>
+
+
+=head1 SEE ALSO
+
+* C<CPAN::Uploader>
+* C<Mojolicious::Command::cpanify>
 
 
 =head1 AUTHOR

@@ -4,12 +4,13 @@ author:
   - 'Yaroslav Korshak  C<< <yko@cpan.org> >>'
   - 'Yaroslav Korshak <yko@cpan.org>'
 build_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.59
   Test::More: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.42
+  ExtUtils::MakeMaker: 6.59
 distribution_type: module
-generated_by: 'Module::Install version 1.01'
+dynamic_config: 1
+generated_by: 'Module::Install version 1.12'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -31,4 +32,4 @@ resources:
   bugtracker: http://github.com/yko/mojox-cpan-uploader/issues
   license: http://dev.perl.org/licenses/
   repository: http://github.com/yko/mojox-cpan-uploader
-version: 0.032
+version: 0.033
